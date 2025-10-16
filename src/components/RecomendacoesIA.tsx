@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { askGemini } from "../services/gemini";
 
-const RecomendacoesIA: React.FC = () => {
+export function RecomendacoesIA() {
   const [loading, setLoading] = useState(false);
   const [resposta, setResposta] = useState("");
 
@@ -9,7 +9,7 @@ const RecomendacoesIA: React.FC = () => {
     setLoading(true);
     try {
       const { text } = await askGemini(
-        "Gere 3 dicas curtas e práticas para reduzir o estresse e evitar burnout em ambiente acadêmico."
+        "Gere 3 dicas curtas e práticas para reduzir estresse acadêmico antes de provas."
       );
       setResposta(text);
     } catch (e: any) {
@@ -20,14 +20,12 @@ const RecomendacoesIA: React.FC = () => {
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Recomendações de Bem-Estar (IA Gemini)</h2>
+    <div style={{ padding: 16 }}>
+      <h2>Recomendações IA</h2>
       <button onClick={gerar} disabled={loading}>
         {loading ? "Gerando..." : "Gerar Recomendações"}
       </button>
-      <pre style={{ whiteSpace: "pre-wrap", marginTop: 16 }}>{resposta}</pre>
+      <pre style={{ whiteSpace: "pre-wrap", marginTop: 12 }}>{resposta}</pre>
     </div>
   );
-};
-
-export default RecomendacoesIA;
+}
