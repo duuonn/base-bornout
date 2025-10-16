@@ -19,6 +19,7 @@ const App: React.FC = () => {
           <Route path="/quiz" component={BurnoutQuiz} />
           <Route path="/results" component={Results} />
           <Route path="/statistics" component={Statistics} />
+          <Route path="/ia" component={RecomendacoesIA} />
           <Route path="/" exact>
             <Redirect to="/login" />
           </Route>
@@ -29,3 +30,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+import { RecomendacoesIA } from "./components/RecomendacoesIA";
+
